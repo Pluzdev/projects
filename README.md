@@ -1,36 +1,26 @@
-# 🚀 SaaS API - Plateforme de Notifications E-commerce
+# 🚀 Notifications Shopify
 
 ## 📋 Description du Projet
 
-**SaaS API** est une plateforme SaaS complète qui permet aux propriétaires de boutiques Shopify de recevoir des notifications en temps réel sur leurs ventes via Discord et Telegram. L'application offre également des rapports en direct avec des métriques détaillées et un système de webhooks intelligent pour automatiser les notifications.
+Le but est de créer une plateforme complète qui permet aux propriétaires de boutiques Shopify de recevoir des notifications en temps réel sur leurs ventes via Discord et Telegram à l'aide du système de webhooks de Shopify. L'application offrira également des rapports en direct avec des métriques détaillées pour connaitre les statistiques de ses boutiques par jour, semaine, mois etc.
 
 ### 🎯 **Objectif Principal**
 Simplifier la gestion des notifications e-commerce en offrant une solution centralisée qui :
 - **Automatise** les notifications de nouvelles commandes
 - **Centralise** les données de vente de plusieurs boutiques
 - **Fournit** des rapports en temps réel
-- **Intègre** facilement Discord et Telegram
 
 ### 💡 **Valeur Ajoutée**
 - **Temps réel** : Notifications instantanées dès qu'une commande est passée
 - **Multi-boutiques** : Gestion centralisée de plusieurs boutiques Shopify
 - **Multi-canaux** : Notifications via Discord ET Telegram simultanément
 - **Rapports intelligents** : Métriques automatiques avec mise à jour en direct
-- **Sécurité** : Tokens uniques, authentification JWT, masquage des données sensibles
 
 ---
 
 ## 🏗️ Architecture Technique
+### **Structure actuelle du Projet**
 
-### **Stack Technologique**
-- **Backend** : Node.js + TypeScript + Express.js
-- **Base de données** : PostgreSQL avec pool de connexions
-- **Authentification** : JWT avec bcrypt pour le hachage des mots de passe
-- **Validation** : Zod pour la validation des schémas et types
-- **Sécurité** : Helmet, CORS, middleware d'authentification
-- **Intégrations** : Discord Webhooks, Telegram Bot API
-
-### **Structure du Projet**
 ```
 src/
 ├── config/          # Configuration environnement
@@ -96,7 +86,7 @@ Authorization: Bearer <jwt_token>
 ### **Fonctionnalités Avancées**
 - **CRUD complet** : Création, lecture, mise à jour, suppression des boutiques
 - **Validation stricte** : Domaines Shopify uniquement (format `xxx.myshopify.com`)
-- **Métriques intégrées** : Compteurs de commandes et clients en temps réel
+- **Métriques intégrées** : Compteurs de commandes, montants et clients en temps réel
 - **Sécurité par utilisateur** : Chaque utilisateur ne voit que ses propres boutiques
 - **Statut actif/inactif** : Gestion de l'état des boutiques
 
@@ -154,11 +144,11 @@ Authorization: Bearer <jwt_token>
 #### **Discord Integration**
 - **Webhooks Discord** : Notifications via webhooks personnalisés
 - **Validation d'URL** : Vérification que l'URL est bien un webhook Discord
-- **Messages formatés** : Embeds Discord avec couleurs et structure
+- **Messages formatés** : Embeds Discord
 - **Masquage sécurisé** : URLs webhook masquées dans les réponses
 
 #### **Telegram Integration**
-- **Bot Telegram** : Notifications via bot personnalisé
+- **Bot Telegram** : Notifications via bot personnalisé propre à chaque utilisateur
 - **Chat ID** : Support des groupes et conversations privées
 - **Messages HTML** : Formatage riche avec emojis et structure
 - **Masquage des tokens** : Tokens bot masqués pour la sécurité
@@ -388,7 +378,7 @@ DELETE /api/reports/live/:id
 Authorization: Bearer <jwt_token>
 ```
 
-### **Exemple de Rapport en Direct**
+### **Exemple de Rapport en Direct Telegram**
 ```
 📊 Bilan des ventes du jour
 Dernière mise à jour : 26/09/2025 17:19:11
